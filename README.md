@@ -1,7 +1,7 @@
 # DeepLearning Study
 ### Do it! 딥러닝 입문 스터디 (2021.03.08 ~ )
 ---
-### chapter 01 딥러닝을 소개합니다
+### [chapter 01 딥러닝을 소개합니다](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap01/chap01.md)
 
 ### chapter 02 최소한의 도구로 딥러닝을 시작합니다
 
