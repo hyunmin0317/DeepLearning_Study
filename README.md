@@ -18,3 +18,15 @@
 ### chapter 08 이미지를 분류합니다 (합성곱 신경망)
 
 ### chapter 09 텍스트를 분류합니다 (순환 신경망)
+
+
+
+### 팀원
+
+---
+
+* [최현민 (hyunmin)](https://github.com/hyunmin0317?tab=repositories)
+
+* 고민영 ()
+* 김민우 ()
+* 김진호 ()
