@@ -21,7 +21,7 @@
 
   * 코랩의 기본 기능 익히기
 
-    ![image01]()
+    ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap02/pictures/image01.PNG?raw=true)
 
 * 코랩에서 노트북 관리하기
 
@@ -126,7 +126,7 @@
          plt.show()
          ```
 
-         ![image02]()
+         ![image02](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap02/pictures/image02.PNG?raw=true)
 
       2. 산점도 그리기
 
@@ -137,7 +137,7 @@
          plt.show()
          ```
 
-         ![image03]()
+         ![image03](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap02/pictures/image03.PNG?raw=true)
 
       3. 넘파이 배열로 산점도 그리기
 
@@ -150,6 +150,6 @@
          plt.show()
          ```
 
-         ![image04]()
+         ![image04](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap02/pictures/image04.PNG?raw=true)
 
   * 데이터를 분석하고 시각화하면 데이터에서 직관을 얻기 쉬워 딥러닝에서 데이터 시각화는 필수이다.
