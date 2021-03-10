@@ -21,7 +21,7 @@
 
   * 코랩의 기본 기능 익히기
 
-    ![image01](C:\Programming\DeepLearning\chap02\pictures\image01.PNG)
+    ![image01]()
 
 * 코랩에서 노트북 관리하기
 
@@ -87,8 +87,7 @@
     2. type() 함수로 넘파이 배열인지 확인하기
 
        ```python
-       type(my_arr)
-       numply.ndarray
+       type(my_arr)	# numpy.ndarray
        ```
 
     3. 넘파이 배열에서 요소 선택하기
@@ -127,6 +126,8 @@
          plt.show()
          ```
 
+         ![image02]()
+
       2. 산점도 그리기
 
          * 산점도는 데이터의 x축, y축 값을 이용하여 점으로 그래프를 그린 것
@@ -135,6 +136,8 @@
          plt.scatter([1, 2, 3, 4, 5], [1, 4, 9, 16, 25])	
          plt.show()
          ```
+
+         ![image03]()
 
       3. 넘파이 배열로 산점도 그리기
 
@@ -146,5 +149,7 @@
          plt.scatter(x, y)	
          plt.show()
          ```
+
+         ![image04]()
 
   * 데이터를 분석하고 시각화하면 데이터에서 직관을 얻기 쉬워 딥러닝에서 데이터 시각화는 필수이다.
