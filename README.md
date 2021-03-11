@@ -19,14 +19,27 @@
 
 ### chapter 09 텍스트를 분류합니다 (순환 신경망)
 
-
+<br>
 
 ### 팀원
 
 ---
 
-* [최현민 (hyunmin)](https://github.com/hyunmin0317?tab=repositories)
+> [최현민 (hyunmin0317)](https://github.com/hyunmin0317?tab=repositories)
+>
+> 고민영
+>
+> 김민우
+>
+> 김진호
 
-* 고민영 ()
-* 김민우 ()
-* 김진호 ()
+<br>
+
+### 스터디 기록
+
+---
+
+|    Date    |         Homework         | Participants |
+| :--------: | :----------------------: | :----------: |
+| 2021.03.12 | Git과 md파일 사용법 공부 |    최현민    |
+| 2021.03.19 | Chapter 01 ~ Chapter 03  |              |
