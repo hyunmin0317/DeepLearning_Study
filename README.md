@@ -5,7 +5,7 @@
 
 ### [chapter 02 최소한의 도구로 딥러닝을 시작합니다](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap02/chap02.md)
 
-### chapter 03 머신러닝의 기초를 다집니다 (수지 예측)
+### [chapter 03 머신러닝의 기초를 다집니다 (수지 예측)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/chap03.md)
 
 ### chapter 04 분류하는 뉴런을 만듭니다 (이진 분류)
 
