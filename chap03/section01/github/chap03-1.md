@@ -29,33 +29,34 @@
 
      ```python
    from sklearn.datasets import load_diabetes
-     diabetes = load_diabetes()	# diabetes에 당뇨병 데이터 저장, 자료형은 파이썬 딕셔너리와 유사한 Bunch 클래스 
+     diabetes = load_diabetes()	
+     # diabetes에 당뇨병 데이터 저장, 자료형은 파이썬 딕셔너리와 유사한 Bunch 클래스
      ```
   
-  2. 입력과 타깃 데이터의 크기 확인하기
-
-     ```python
-   print(diabetes.data.shape, diabetes.target.shape)	# (442, 10) (442,)
+2. 입력과 타깃 데이터의 크기 확인하기
+  
+   ```python
+     print(diabetes.data.shape, diabetes.target.shape)	# (442, 10) (442,)
      ```
   
-     * 필요한 입력과 타깃 데이터가 diabetes의 data 속성과 target 속성에 넘파이 배열로 저장되어 있음
-   * data는 442개의 행과 10개의 열로 구성된 2차원 배열이고 target은 442개 요소를 가진 1차원 배열
+   * 필요한 입력과 타깃 데이터가 diabetes의 data 속성과 target 속성에 넘파이 배열로 저장되어 있음
+     * data는 442개의 행과 10개의 열로 구성된 2차원 배열이고 target은 442개 요소를 가진 1차원 배열
      * 행은 샘플(sample)로 환자에 대한 특성으로 이루어진 데이터 1세트를 의미하고 열은 샘플의 특성(feature)으로 데이터의 여러 특징을 의미함
      * 입력 데이터의 특성은 속성, 독립 변수(independent variable), 설명 변수(explanatory variable) 등으로 부름
   
-  3. 입력 데이터 자세히 보기
-
-     ```python
-   diabetes.data[0:3]	# 슬라이싱을 사용해 입력 데이터 앞부분의 샘플 3개만 출력
+3. 입력 데이터 자세히 보기
+  
+   ```python
+     diabetes.data[0:3]	# 슬라이싱을 사용해 입력 데이터 앞부분의 샘플 3개만 출력
      ```
   
-  4. 타깃 데이터 자세히 보기
-
-     ```python
-   diabetes.target[:3] # [0:3] == [:3], 슬라이싱을 사용해 타깃 데이터 앞부분의 타깃 3개만 출력
+4. 타깃 데이터 자세히 보기
+  
+   ```python
+     diabetes.target[:3] # [0:3] == [:3], 슬라이싱을 사용해 타깃 데이터 앞부분의 타깃 3개만 출력
      ```
   
-     * 이 예제에서 타깃 데이터는 10개의 요소로 구성된 샘플 1개에 대응됨
+   * 이 예제에서 타깃 데이터는 10개의 요소로 구성된 샘플 1개에 대응됨
 
 <br>
 
