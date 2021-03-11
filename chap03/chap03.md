@@ -75,7 +75,7 @@
          plt.show()
          ```
 
-         ![image01]()
+         ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/pictures/image01.PNG?raw=true)
 
          * 입력 데이터와 타깃 데이터 사이에 정비례 관계가 있음을 확인
 
