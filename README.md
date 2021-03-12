@@ -31,7 +31,7 @@
 >
 > 김민우
 >
-> 김진호
+> [김진호 (jinho7)](https://github.com/jinho7)
 
 <br>
 
