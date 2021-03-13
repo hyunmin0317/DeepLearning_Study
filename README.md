@@ -27,9 +27,9 @@
 
 > [최현민 (hyunmin0317)](https://github.com/hyunmin0317?tab=repositories)
 >
-> 고민영
+> [고민영 (gomin0)](https://github.com/gomin0)
 >
-> 김민우
+> [김민우 (unco-min)](https://github.com/unco-min)
 >
 > [김진호 (jinho7)](https://github.com/jinho7)
 
@@ -41,5 +41,5 @@
 
 |    Date    |         Homework         | Participants |
 | :--------: | :----------------------: | :----------: |
-| 2021.03.13 | Git과 md파일 사용법 공부 |              |
+| 2021.03.13 | Git과 md파일 사용법 공부 | 최현민, 고민영, 김민우 |
 | 2021.03.20 | Chapter 01 ~ Chapter 03  |              |
