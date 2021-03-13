@@ -70,16 +70,22 @@
 
      * w와 b를 조금씩 변경해서 y_hat의 변화량을 관찰하여 y_hat이 y[0]에 가까워질 수 있도록 바꿈
 
-       ```
+       ```python
        w_inc = w + 0.1		# w를 0.1만큼 증가시키고 y_hat의 변화량 관찰
        y_hat_inc = x[0] * w_inc + b
        print(y_hat_inc)	# 1.0678658271705574
        # w 값을 0.1만큼 증가시킨 다음 값을 다시 예측하여 y_hat_inc에 저장 (y_hat보다 증가)
        ```
 
-       
-
   5. w 값 조정한 후 예측값 증가 정도 확인하기
+
+     ```python
+     w_rate = (y_hat_inc - y_hat) / (w_inc - w)
+     print(w_rate)	# 0.061696206518688734
+     # y_hat이 증가한 양을 w가 증가한 양으로 나누어 w가 0.1만큼 증가했을 때 y_hat의 증가량 계산
+     ```
+  
+     
 
 <br>
 
