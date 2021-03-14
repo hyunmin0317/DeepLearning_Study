@@ -197,7 +197,7 @@
        plt.show()
        ```
 
-       ![image]
+       ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/section02/github/image01.PNG?raw=true)
 
   5. 여러 에포크를 반복하기
 
@@ -230,6 +230,8 @@
        plt.show()
        ```
 
+       ![image02](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/section02/github/image02.PNG?raw=true)
+
   6. 모델로 예측하기
 
      * 입력 x에 없었던 새로운 데이터에(0.18) 대해 ŷ의 값 예측
@@ -250,7 +252,7 @@
        plt.show()
        ```
 
-       ![image]
+       ![image03](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/section02/github/image03.PNG?raw=true)
 
 <br>
 
