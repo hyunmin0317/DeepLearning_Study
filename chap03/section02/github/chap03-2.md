@@ -156,9 +156,33 @@
 
   2. 다른 샘플로 오차와 변화율 새로 구하기
 
-     
+     * 두 번째 샘플 x[1]을 사용하여 오차를 구하고 새로운 w와 b를 구함
+
+       ```python
+       y_hat = x[1] * w_new + b_new	# w_rate와 샘플값이 같으므로 그대로 사용
+       err = y[1] - y_hat
+       w_rate = x[1]
+       w_new = w_new + w_rate * err
+       b_new = b_new + 1 * err
+       print(w_new, b_new)	# 14.132317616381767 75.52764127612664
+       # w는 4만큼 커지고 b는 절반으로 줄어듦
+       ```
 
   3. 전체 샘플을 반복하기
+
+     * 이 방식으로 모든 샘플을 사용해 가중치와 절편 업데이트
+
+       ```python
+       for x_i, y_i in zip(x, y):
+           y_hat = x_i * w + b
+           err = y_i - y_hat
+           w_rate = x_i
+           w = w + w_rate * err
+           b = b + 1 * err
+       print(w, b)	# 587.8654539985689	99.40935564531424
+       ```
+
+       
 
   4. 00
 
