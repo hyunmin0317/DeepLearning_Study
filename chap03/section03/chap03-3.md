@@ -21,13 +21,13 @@
 
   * 제곱 오차를 가중치에 대하여 미분한 결과 (w에 대해 편미분)
 
-    ![image01]()
+    ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/section03/image01.PNG?raw=true)
 
   * 깔끔하게 표현하기 위해 보통은 제곱 오차 공식을 2로 나눈 함수를 편미분하여 (-(y-ŷ)x)을 사용
 
   * 가중치 업데이트 (여기서는 손실함수의 낮은 쪽으로 이동하기 위해 w에서 변화율을 뺌)
 
-    ![image02]()
+    ![image02](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/section03/image02.PNG?raw=true)
 
   * 앞에서 오차 역전파를 알아보며 적용했던 수식과 같음 (w  + w_rate * err)
 
@@ -44,11 +44,11 @@
 
   * 제곱 오차를 절편에 대하여 미분한 결과 (1/2을 곱한 제곱 오차 공식 사용)
 
-    ![image03]()
+    ![image03](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/section03/image03.PNG?raw=true)
 
   * 절편 업데이트 (여기서는 손실함수의 낮은 쪽으로 이동하기 위해 b에서 변화율을 뺌)
 
-    ![image04]()
+    ![image04](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/section03/image04.PNG?raw=true)
 
   * 앞에서 오차 역전파를 알아보며 적용했던 수식과 같음 (b  + 1 * err)
 
