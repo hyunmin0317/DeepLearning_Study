@@ -118,10 +118,10 @@
      plt.show()
      ```
 
-     ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/section04/github/image01.PNG?raw=true)
-
-<br>
-
+     ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/section04/github/image01.PNG?raw=true)<br>
+     
+     <br>
+  
 * Neuron 클래스
 
   ```python
