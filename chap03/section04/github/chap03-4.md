@@ -66,17 +66,17 @@
      class Neuron:
          
          def __init__(self):
-         self.w = 1.0	# 가중치 초기화
-         self.b = 1.0	# 절편 초기화
+         	self.w = 1.0	# 가중치 초기화
+         	self.b = 1.0	# 절편 초기화
          
          def forpass(self, x):
-         y_hat = x * self.w + self.b	# 직선 방정식 계산
-         return y_hat
+         	y_hat = x * self.w + self.b	# 직선 방정식 계산
+         	return y_hat
      
      	def backprop(self, x, err):
-         w_grad = x * err	# 가중치에 대한 그레이디언트 계산
-         b_grad = 1 * err	# 절편에 대한 그레이디언트 계산
-         return w_grad, b_grad
+         	w_grad = x * err	# 가중치에 대한 그레이디언트 계산
+         	b_grad = 1 * err	# 절편에 대한 그레이디언트 계산
+         	return w_grad, b_grad
      ```
 
   5. 훈련을 위한 fit() 메서드 구현하기(훈련 데이터를 통해 가중치와 절편을 업데이트하는 메서드-훈련)
@@ -128,17 +128,17 @@
   class Neuron:
       
       def __init__(self):
-      self.w = 1.0	# 가중치 초기화
-      self.b = 1.0	# 절편 초기화
+      	self.w = 1.0	# 가중치 초기화
+      	self.b = 1.0	# 절편 초기화
       
       def forpass(self, x):
-      y_hat = x * self.w + self.b	# 직선 방정식 계산
-      return y_hat
+      	y_hat = x * self.w + self.b	# 직선 방정식 계산
+      	return y_hat
   
   	def backprop(self, x, err):
-      w_grad = x * err	# 가중치에 대한 그레이디언트 계산
-      b_grad = 1 * err	# 절편에 대한 그레이디언트 계산
-      return w_grad, b_grad
+      	w_grad = x * err	# 가중치에 대한 그레이디언트 계산
+      	b_grad = 1 * err	# 절편에 대한 그레이디언트 계산
+      	return w_grad, b_grad
   
   def fit(self, x, y, epochs=100):
       for i in range(epochs):				# 에포크만큼 반복합니다.
