@@ -112,7 +112,7 @@
      plt.scatter(x, y)
      pt1 = (-0.1, -0.1 * neuron.w + neuron.b)
      pt2 = (0.15, 0.15 * neuron.w + neuron.b)
-     plt.plot([pt1[0], pt2[0]]. [pt1[1], pt2[1]])
+     plt.plot([pt1[0], pt2[0]], [pt1[1], pt2[1]])
      plt.xlabel('x')
      plt.ylabel('y')
      plt.show()
