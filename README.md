@@ -7,7 +7,7 @@
 
 ### [chapter 03 머신러닝의 기초를 다집니다 (수지 예측)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap03/chap03.md)
 
-### chapter 04 분류하는 뉴런을 만듭니다 (이진 분류)
+### [chapter 04 분류하는 뉴런을 만듭니다 (이진 분류)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/chap04.md)
 
 ### chapter 05 훈련 노하우를 배웁니다
 
