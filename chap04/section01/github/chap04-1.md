@@ -7,8 +7,8 @@
 ### 01. 퍼셉트론에 대해 알아봅니다
 
 ```markdown
-* 이진 분류 문제에서 최적의 가중치를 학습하는 퍼셉트론(Perceptron) 알고리즘을 1957년에 프랑크 로젠블라트가 발표함
-	* 이진 분류(binary classification): 임의의 샘플 데이터를 True나 False로 구분하는 문제
+이진 분류 문제에서 최적의 가중치를 학습하는 퍼셉트론(Perceptron) 알고리즘을 1957년에 프랑크 로젠블라트가 발표함
+* 이진 분류(binary classification): 임의의 샘플 데이터를 True나 False로 구분하는 문제
 ```
 
 * 퍼셉트론의 전체 구조를 훑어봅니다
@@ -19,13 +19,13 @@
 
   * 퍼셉트론의 전체 구조
 
-    ![image01]()
+    ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/github/image01.PNG?raw=true)
 
     * 뉴런 - 입력 신호들을 받아 z를 만듦
 
       * 선형 함수
 
-        ![image02]()
+        ![image02](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/github/image02.PNG?raw=true)
 
     * 계단 함수 - z가 0보다 크거나 같으면 1로, 0보다 작으면 -1로 분류함
 
