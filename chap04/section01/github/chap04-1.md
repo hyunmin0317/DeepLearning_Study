@@ -38,9 +38,23 @@
 
 * 지금부터 여러 개의 특성을 사용하겠습니다
 
+  * 특성이 2개인 선형 함수 표기
 
+    ![image03](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/github/image03.PNG?raw=true)
+
+  * 특성이 n개인 선형 함수 표기
+
+    ![image04](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/github/image04.PNG?raw=true)
+
+  * 퍼셉트론은 사이킷런 패키지에서 Perceptron이라는 이름으로 클래스를 제공함
+
+<br>
 
 ### 02. 아달린에 대해 알아봅니다
+
+
+
+<br>
 
 ### 03. 로지스틱 회귀에 대해 알아봅니다
 
