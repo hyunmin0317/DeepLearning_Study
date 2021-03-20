@@ -19,13 +19,13 @@
 
   * 퍼셉트론의 구조
 
-    ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/github/image01.PNG?raw=true)
+    ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/image01.PNG?raw=true)
 
     * 뉴런 - 입력 신호들을 받아 z를 만듦
 
       * 선형 함수
 
-        ![image02](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/github/image02.PNG?raw=true)
+        ![image02](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/image02.PNG?raw=true)
 
     * 계단 함수 - z가 0보다 크거나 같으면 1로, 0보다 작으면 -1로 분류함
 
@@ -40,11 +40,11 @@
 
   * 특성이 2개인 선형 함수 표기 (아래 첨자로 사용한 숫자는 n번째 특성의 가중치와 입력을 의미)
 
-    ![image03](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/github/image03.PNG?raw=true)
+    ![image03](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/image03.PNG?raw=true)
 
   * 특성이 n개인 선형 함수 표기 (아래 첨자로 사용한 숫자는 n번째 특성의 가중치와 입력을 의미)
 
-    ![image04](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/github/image04.PNG?raw=true)
+    ![image04](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/image04.PNG?raw=true)
 
   * 퍼셉트론은 사이킷런 패키지에서 Perceptron이라는 이름으로 클래스를 제공함
 
@@ -59,7 +59,7 @@
 
 * 아달린의 구조
 
-  ![image05](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/github/image05.PNG?raw=true)
+  ![image05](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/image05.PNG?raw=true)
 
   * 아달린에서는 역방향 계산이 계단 함수 출력 이후에 일어나지 않고 선형 함수 출력 이후에 진행됨
 
@@ -73,7 +73,7 @@
 
 * 로지스틱 회귀의 구조
 
-  ![image06](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/github/image06.PNG?raw=true)
+  ![image06](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/image06.PNG?raw=true)
 
   * 활성화 함수(activation function): 선형 함수를 통과시켜 얻은 z를 임계 함수에 보내기 전에 변형시키는 함수(통과한 값을 a 표시)
   * 마지막 단계에서 임계 함수(threshold function)를 사용하여 예측을 수행하고 활성화 함수의 출력값을 사용한다는 점이 다름
@@ -82,7 +82,7 @@
 
   * 활성화 함수는 보통 비선형 함수를 사용하고 비선형 함수의 예시는 다음과 같음
 
-    ![image07](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/github/image07.PNG?raw=true)
+    ![image07](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section01/image07.PNG?raw=true)
 
   * 활성화 함수가 선형이면 임계 함수 앞에 뉴런을 여러 개 쌓아도 결과가 선형 함수가 되어 의미가 없으므로 비선형 함수를 사용
 
