@@ -25,7 +25,7 @@
 
 * 제곱 오차와 로지스틱 손실 함수의 미분
 
-  ![image01]
+  ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section03/image01.PNG?raw=true)
 
   * 로지스틱 회귀의 구현은 3장에서 만든 Neuron 클래스와 크게 다르지 않음
 
@@ -33,29 +33,29 @@
 
   1. 로지스틱 손실 함수와 연쇄 법칙
 
-     ![image02]
+     ![image02](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section03/image02.PNG?raw=true)
 
   2. 로지스틱 손실 함수를 a에 대하여 미분하기
 
-     ![image03]
+     ![image03](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section03/image03.PNG?raw=true)
 
   3. a를 z에 대하여 미분하기
 
-     ![image04]
+     ![image04](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section03/image04.PNG?raw=true)
 
   4. z를 w에 대하여 미분하기
 
-     ![image05]
+     ![image05](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section03/image05.PNG?raw=true)
 
   5. 로지스틱 손실 함수를 w에 대하여 미분하기
 
-     ![image06]
+     ![image06](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section03/image06.PNG?raw=true)
 
 <br>
 
 ### 03. 로지스틱 손실 함수의 미분 과정 정리하고 역전파 이해하기
 
-![image07]
+![image07](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section03/image07.PNG?raw=true)
 
 * 로지스틱 손실 함수 L은 a에 대해, a는 z에 대해, z는 w에 대해 미분하고 각 도함수의 곱을 가중치 업데이트에 사용
 
@@ -65,12 +65,12 @@
 
   1. 가중치 업데이트 방법 정리하기
 
-     ![image08]
+     ![image08](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section03/image08.PNG?raw=true)
 
      * 로지스틱 손실 함수를 가중치에 대해 미분한 식을 가중치에서 빼는 방법으로 가중치 업데이트
 
   2. 절편 업데이트 방법 정리하기
 
-     ![image09]
+     ![image09](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section03/image09.PNG?raw=true)
 
      * 로지스틱 손실 함수를 절편에 대해 미분한 식을 절편에서 빼는 방법으로 가중치 업데이트
