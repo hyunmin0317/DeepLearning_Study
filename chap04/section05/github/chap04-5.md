@@ -99,17 +99,112 @@
 
 ### 04. 훈련하는 메서드 구현하기
 
+1. fit() 메서드 구현하기
+
+   ```python
+   def fit(self, x, y, epochs=100):
+       self.w = np.ones(x.shape[1])	# 가중치를 초기화합니다. (1로 초기화)
+       self.b = 0						# 절편을 초기화합니다. (0으로 초기화)
+       for i in range(epochs):			# epochs만큼 반복합니다.
+           for x_i, y_i in zip(x, y):	# 모든 샘플에 대해 반복합니다.
+               z = self.forpass(X_i)	# 정방향 계산
+               a = self.activation(z)	# 활성화 함수 적용
+               err = -(y_i - a)		# 오차 계산
+               w_grad, b_grad = self.backprop(x_i, err)	# 역방향 계산
+               self.w -= w_grad		# 가중치 업데이트
+               self.b -= b_grad		# 절편 업데이트
+   ```
+
+2. activation() 메서드 구현하기
+
+   ```python
+   def activation(self, z):
+       a = 1 / (1 + np.exp(-z))	# 시그모이드 계산
+       return a
+   ```
+
 <br>
 
 ### 05. 예측하는 메서드 구현하기
+
+* 선형 회귀에서는 새로운 샘플에 대한 예측값을 계산할 때 forpass() 메서드를 사용
+
+* 여러 개의 샘플을 한꺼번에 예측하려면 forpass() 메서드를 여러 번 호출하게 되는데 이 작업은 번거로우며 분류에서는 활성화 함수와 임계 함수도 적용해야 하므로 새로운 메서드가 필요함
+
+* predict() 메서드 구현하기
+
+  ```python
+  def predict(self, x):
+      z = [self.forpass(x_i) for x_i in x]	# 선형 함수 적용
+      a = self.activation(np.array(z))		# 활성화 함수 적용
+      return a > 0.5							# 계단 함수 적용
+  ```
 
 <br>
 
 ### 06. 구현 내용 한눈에 보기
 
+```python
+class LogisticNeuron:
+    
+    def __init__(self):
+    	self.w = None
+    	self.b = None
+    
+    def forpass(self, x):
+    	z = np.sum(x * self.w) + self.b		# 직선 방정식을 계산합니다.
+    	return z
+
+	def backprop(self, x, err):
+    	w_grad = x * err					# 가중치에 대한 그레이디언트 계산
+    	b_grad = 1 * err					# 절편에 대한 그레이디언트 계산
+    	return w_grad, b_grad
+    
+    def activation(self, z):
+        z = np.clip(z, -100, None)			# 안전한 np.exp() 계산을 위해
+    	a = 1 / (1 + np.exp(-z))			# 시그모이드 계산
+    	return a
+    
+    def fit(self, x, y, epochs=100):
+    	self.w = np.ones(x.shape[1])		# 가중치를 초기화합니다. (1로 초기화)
+    	self.b = 0							# 절편을 초기화합니다. (0으로 초기화)
+    	for i in range(epochs):				# epochs만큼 반복합니다.
+        	for x_i, y_i in zip(x, y):		# 모든 샘플에 대해 반복합니다.
+            	z = self.forpass(X_i)		# 정방향 계산
+            	a = self.activation(z)		# 활성화 함수 적용
+            	err = -(y_i - a)			# 오차 계산
+            	w_grad, b_grad = self.backprop(x_i, err)	# 역방향 계산
+            	self.w -= w_grad			# 가중치 업데이트
+            	self.b -= b_grad			# 절편 업데이트
+                
+    def predict(self, x):
+   		z = [self.forpass(x_i) for x_i in x]	# 정방향 계산
+    	a = self.activation(np.array(z))		# 활성화 함수 적용
+    	return a > 0.5						
+```
+
 <br>
 
 ### 07. 로지스틱 회귀 모델 훈련시키기
+
+1. 모델 훈련하기
+
+   ```python
+   neuron = LogisticNeuron()
+   neuron.fit(X_train, y_train)
+   ```
+
+2. 테스트 세트 사용해 모델의 정확도 평가하기
+
+   * 훈련이 끝난 모델에 테스트 세트를 사용해 예측값을 넣고 예측한 값이 맞는지 비교
+
+     ```python
+     np.mean(neuron.predict(x_test) == y_test)	# 0.8245614035087719
+     ```
+
+   * predict() 메서드의 반환값은 True나 False로 채워진 (m, ) 크기의 배열이고 y_test는 0 또는 1로 채워진 (m, ) 크기의 배열이므로 바로 비교할 수 있음
+
+   * np.mean() 함수는 매개변수 값으로 전달한 비교문 결과(넘파이 배열)의 평균을 계산하며 여기서는 정확도를 구할 때 사용
 
 
 
