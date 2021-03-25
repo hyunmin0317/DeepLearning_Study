@@ -170,7 +170,7 @@ class LogisticNeuron:
     	self.b = 0							# 절편을 초기화합니다. (0으로 초기화)
     	for i in range(epochs):				# epochs만큼 반복합니다.
         	for x_i, y_i in zip(x, y):		# 모든 샘플에 대해 반복합니다.
-            	z = self.forpass(X_i)		# 정방향 계산
+            	z = self.forpass(x_i)		# 정방향 계산
             	a = self.activation(z)		# 활성화 함수 적용
             	err = -(y_i - a)			# 오차 계산
             	w_grad, b_grad = self.backprop(x_i, err)	# 역방향 계산
@@ -191,7 +191,7 @@ class LogisticNeuron:
 
    ```python
    neuron = LogisticNeuron()
-   neuron.fit(X_train, y_train)
+   neuron.fit(x_train, y_train)
    ```
 
 2. 테스트 세트 사용해 모델의 정확도 평가하기
