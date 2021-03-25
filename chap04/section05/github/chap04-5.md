@@ -71,6 +71,30 @@
 
 * 정방향으로 데이터가 흘러가는 과정(정방향 계산)과 가중치를 업데이트하기 위해 역방향으로 데이터가 흘러가는 과정(역방향 계산)을 구현해야 함
 
+* LogisticNeuron 클래스
+
+  ```python
+  class LogisticNeuron:
+      
+      def __init__(self):
+      	self.w = None
+      	self.b = None
+      
+      def forpass(self, x):
+      	z = np.sum(x * self.w) + self.b		# 직선 방정식을 계산합니다.
+      	return z
+  
+  	def backprop(self, x, err):
+      	w_grad = x * err	# 가중치에 대한 그레이디언트 계산
+      	b_grad = 1 * err	# 절편에 대한 그레이디언트 계산
+      	return w_grad, b_grad
+  ```
+
+  * __init()__ 메서드는 가중치와 절편을 미리 초기화하지 않습니다
+    * 입력 데이터의 특성이 많아 가중치를 미리 초기화하지 않고 특성 개수에 맞게 결정
+  * forpass() 메서드에 넘파이 함수를 사용합니다
+    * 가중치와 입력 특성의 곱을 모두 더하기 위해 np.sum() 함수를 사용
+
 <br>
 
 ### 04. 훈련하는 메서드 구현하기
