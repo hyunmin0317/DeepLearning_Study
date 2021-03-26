@@ -1,33 +1,40 @@
 # chap 04-6 로지스틱 회귀 뉴런으로 단일층 신경망을 만듭니다
 
-2021.03.
+2021.03.26
 
 <br>
 
 ### 01. 일반적인 신경망의 모습을 알아봅니다
 
+![image01]
+
+* 왼쪽이 입력층(input layer), 오른쪽이 출력층(output layer) 가운데 층은 은닉층(hidden layer)
+* 단일층 신경망: 입력층과 출력층만 가지는 신경망
+
 <br>
 
 ### 02. 단일층 신경망을 구현합니다
 
-
+* 앞에서 구현한 LogisticNeuron 클래스 또한 단일층 신경망으로 몇 가지 기능을 추가하여 단일층 신경망 구현 (SingleLayer)
 
 * 손실 함수의 결괏값 저장 기능 추가하기
 
   ```python
-  def __init__(self):
-      self.w = None
-      self.b = None
-      self.losses = []
-  #	...
+  class SingleLayer:
+      
+      def __init__(self):
+      	self.w = None
+      	self.b = None
+          self.losses = []
+          # ...
+      
+      def fit(self, x, y, epochs=100):
+  	#	...
   
-  def fit(self, x, y, epochs=100):
-  #	...
-  
-  	for i in index:					# 모든 샘플에 대해 반복
+  	for i in index:		# 모든 샘플에 대해 반복
           z = self.forpass(x[i])		# 정방향 계산
           a = self.activation(z)		# 활성화 함수 적용
-          err = -(y[i] - a)			# 오차 계산
+          err = -(y[i] - a)		# 오차 계산
           w_grad, b_grad = self.backprop(x[i], err)	# 역방향 계산
           self.w -= w_grad			# 가중치 업데이트
           self.b -= b_grad			# 절편 업데이트
@@ -35,10 +42,11 @@
           a = np.clip(a, 1e-10, 1-1e-10)
           loss +- -(y[i]*np.log(a)+(1-y[i])*np.log(1-a))
           # 에포크마다 평균 손실을 저장합니다.
-  	self.losses.append(loss/len(y))
+		self.losses.append(loss/len(y))
   ```
-
   
+  * __init__() 메서드에 손실 함수의 결괏값을 저장할 리스트 self.losses를 만들고 손실 함수의 결괏값을 샘플 개수로 나눈 평균값을 저장
+  * self.activation() 메서드로 계산한 a의 값을 np.clip() 함수로 조정 (a가 0에 가까워지면 손실값이 무한해지지 않기 위해서 조정)
 
 <br>
 
