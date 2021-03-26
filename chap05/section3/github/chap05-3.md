@@ -198,7 +198,7 @@
        plt.show()
    ```
 
-   ![image04](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/section3/github/image04.PNG?raw=true)
+   ![image04](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/section3/github/image04.png?raw=true)
 
    *  모델의 성능 확인
 
