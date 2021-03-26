@@ -124,9 +124,99 @@
 ### 05. 스케일을 조정하지 않고 모델을 훈련해 볼까요?
 
 1. 훈련 데이터 준비하고 스케일 비교하기
+
+   ```python
+   print(cancer.feature_names[[2,3]])
+   plt.boxplot(x_train[:, 2:4])
+   plt.xlabel('feature')
+   plt.ylabel('value')
+   plt.show()	# ['mean perimeter' 'mean area']
+   ```
+
+   [image01]
+
+   * 위스콘신 유방암 데이터의 mean perimeter는 주로 100~200 사이에 값들이 위치한 반면 mean area는 200~2000 사이에 값들이 집중되어 있음
+
 2. 가중치를 기록할 변수와 학습률 파라미터 추가하기
+
+   ```python
+   def __init__(self, learning_rate=0.1, l1=0, l2=0):
+           self.w = None
+           self.b = None
+           self.losses = []
+           self.val_losses = []
+           self.w_history = []
+           self.lr = learning_rate
+   ```
+
+   * 추가한 파라미터 설명
+     * learning_rate: 학습률 파라미터로 가중치의 업데이트 양을 조절
+     * w_history: 인스턴스 변수로 에포크마다 가중치의 값을 저장
+
+   <br>
+
 3. 가중치 기록하고 업데이트 양 조절하기
-4. 최종으로 결정된 가중치
+
+   ```python
+   def fit(self, x, y, epochs=100, x_val=None, y_val=None):
+           self.w = np.ones(x.shape[1])               # 가중치를 초기화합니다.
+           self.b = 0                                 # 절편을 초기화합니다.
+           self.w_history.append(self.w.copy())       # 가중치를 기록합니다.
+           np.random.seed(42)                         # 랜덤 시드를 지정합니다.
+           for i in range(epochs):                    # epochs만큼 반복합니다.
+               loss = 0
+               # 인덱스를 섞습니다
+               indexes = np.random.permutation(np.arange(len(x)))
+               for i in indexes:                      # 모든 샘플에 대해 반복합니다
+                   z = self.forpass(x[i])             # 정방향 계산
+                   a = self.activation(z)             # 활성화 함수 적용
+                   err = -(y[i] - a)                  # 오차 계산
+                   w_grad, b_grad = self.backprop(x[i], err) # 역방향 계산
+                   # 그래디언트에서 페널티 항의 미분 값을 더합니다
+                   w_grad += self.l1 * np.sign(self.w) + self.l2 * self.w
+                   self.w -= self.lr * w_grad         # 가중치 업데이트
+                   self.b -= b_grad                   # 절편 업데이트
+                   # 가중치를 기록합니다.
+                   self.w_history.append(self.w.copy())
+                   # 안전한 로그 계산을 위해 클리핑한 후 손실을 누적합니다
+                   a = np.clip(a, 1e-10, 1-1e-10)
+                   loss += -(y[i]*np.log(a)+(1-y[i])*np.log(1-a))
+               # 에포크마다 평균 손실을 저장합니다
+               self.losses.append(loss/len(y) + self.reg_loss())
+               # 검증 세트에 대한 손실을 계산합니다
+               self.update_val_loss(x_val, y_val)
+   ```
+
+   * 가중치가 바뀔 때마다 w_history 리스트에 가중치를 기록 (가중치가 바뀔 때마다 그 값을 복사하여 w_history 리스트에 추가)
+   * w_grad에 학습률 self.lr을 곱하여 가중치 업데이트 양 조절
+
+4. 모델 훈련하고 평가하기
+
+   ```python
+   layer1 = SingleLayer()
+   layer1.fit(x_train, y_train)
+   layer1.score(x_val, y_val)	# 0.9120879120879121
+   ```
+
+5. 가중치의 값을 그래프로 나타내기
+
+   ```python
+   w2 = []
+   w3 = []
+   for w in layer1.w_history:
+       w2.append(w[2])
+       w3.append(w[3])
+   plt.plot(w2, w3)
+   plt.plot(w2[-1], w3[-1], 'ro')
+   plt.xlabel('w[2]')
+   plt.ylabel('w[3]')
+   plt.show()
+   ```
+
+   ![image02]
+
+   * 100번의 에포크 동안 변경된 가중치가 모두 인스턴스 변수 w_history에 기록되어 있고 세 번째, 네 번째 요소는 각각 mean perimeter와 mean area 특성에 대한 가중치이며 이를 그래프로 그리면 다음과 같음 (최종으로 결정된 가중치는 점으로 표시)
+   * 가중치의 최적값에 도달하는 동안 w3 값이 요동치므로 모델이 불안정하게 수렴하며 이를 줄이기 위해 스케일을 조정해야 함
 
 <br>
 
