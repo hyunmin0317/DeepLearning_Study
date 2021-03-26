@@ -6,7 +6,7 @@
 
 ### 01. 일반적인 신경망의 모습을 알아봅니다
 
-![image01]
+![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section06/github/image01.PNG?raw=true)
 
 * 왼쪽이 입력층(input layer), 오른쪽이 출력층(output layer) 가운데 층은 은닉층(hidden layer)
 * 단일층 신경망: 입력층과 출력층만 가지는 신경망
@@ -173,6 +173,6 @@
    plt.show()
    ```
 
-   ![image02]
+   ![image02](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section06/github/image02.PNG?raw=true)
 
    * 손실 함수의 결괏값으로 그래프를 그려보니 로지스틱 손실 함수의 값이 에포크가 진행됨에 따라 감소하고 있음을 확인할 수 있음
