@@ -13,5 +13,3 @@
 ### [04-6 로지스틱 회귀 뉴런으로 단일층 신경망을 만듭니다](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section06/github/chap04-6.md)
 
 ### [04-7 사이킷런으로 로지스틱 회귀를 수행합니다](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/section07/github/chap04-7.md)
-
-.
