@@ -144,17 +144,16 @@
            self.w = None
            self.b = None
            self.losses = []
-           self.val_losses = []
            self.w_history = []
            self.lr = learning_rate
    ```
-
-   * 추가한 파라미터 설명
+   
+* 추가한 파라미터 설명
      * learning_rate: 학습률 파라미터로 가중치의 업데이트 양을 조절
      * w_history: 인스턴스 변수로 에포크마다 가중치의 값을 저장
-
-   <br>
-
+   
+<br>
+   
 3. 가중치 기록하고 업데이트 양 조절하기
 
    ```python
@@ -172,8 +171,6 @@
                    a = self.activation(z)             # 활성화 함수 적용
                    err = -(y[i] - a)                  # 오차 계산
                    w_grad, b_grad = self.backprop(x[i], err) # 역방향 계산
-                   # 그래디언트에서 페널티 항의 미분 값을 더합니다
-                   w_grad += self.l1 * np.sign(self.w) + self.l2 * self.w
                    self.w -= self.lr * w_grad         # 가중치 업데이트
                    self.b -= b_grad                   # 절편 업데이트
                    # 가중치를 기록합니다.
@@ -182,14 +179,12 @@
                    a = np.clip(a, 1e-10, 1-1e-10)
                    loss += -(y[i]*np.log(a)+(1-y[i])*np.log(1-a))
                # 에포크마다 평균 손실을 저장합니다
-               self.losses.append(loss/len(y) + self.reg_loss())
-               # 검증 세트에 대한 손실을 계산합니다
-               self.update_val_loss(x_val, y_val)
+               self.losses.append(loss/len(y))
    ```
-
+   
    * 가중치가 바뀔 때마다 w_history 리스트에 가중치를 기록 (가중치가 바뀔 때마다 그 값을 복사하여 w_history 리스트에 추가)
    * w_grad에 학습률 self.lr을 곱하여 가중치 업데이트 양 조절
-
+   
 4. 모델 훈련하고 평가하기
 
    ```python
