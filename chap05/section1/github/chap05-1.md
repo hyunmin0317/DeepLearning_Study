@@ -133,7 +133,7 @@
    plt.show()	# ['mean perimeter' 'mean area']
    ```
 
-   [image01]
+   ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/section1/github/image01.PNG?raw=true)
 
    * 위스콘신 유방암 데이터의 mean perimeter는 주로 100~200 사이에 값들이 위치한 반면 mean area는 200~2000 사이에 값들이 집중되어 있음
 
@@ -213,7 +213,7 @@
    plt.show()
    ```
 
-   ![image02]
+   ![image02](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/section1/github/image02.PNG?raw=true)
 
    * 100번의 에포크 동안 변경된 가중치가 모두 인스턴스 변수 w_history에 기록되어 있고 세 번째, 네 번째 요소는 각각 mean perimeter와 mean area 특성에 대한 가중치이며 이를 그래프로 그리면 다음과 같음 (최종으로 결정된 가중치는 점으로 표시)
    * 가중치의 최적값에 도달하는 동안 w3 값이 요동치므로 모델이 불안정하게 수렴하며 이를 줄이기 위해 스케일을 조정해야 함
@@ -222,16 +222,119 @@
 
 ### 06. 스케일을 조정해 모델을 훈련합니다
 
+```markdown
+스케일을 조정하는 방법은 많지만 신경망에서는 스케일 조정 방법 중 표준화(standardization)를 많이 사용함
+* 표준화는 특성값에서 평균을 빼고 표준 편차로 나누면 됨
+```
+
 1. 넘파이로 표준화 구현하기
+
+   ```python
+   train_mean = np.mean(x_train, axis=0)
+   train_std = np.std(x_train, axis=0)
+   x_train_scaled = (x_train - train_mean) / train_std
+   ```
+
+   * 넘파이의 mean(), std() 함수를 사용하여 평균과 표준 편차를 계산하여 표준화를 쉽게 구현
+
 2. 모델 훈련하기
+
+   ```python
+   layer2 = SingleLayer()
+   layer2.fit(x_train_scaled, y_train)
+   w2 = []
+   w3 = []
+   for w in layer2.w_history:
+       w2.append(w[2])
+       w3.append(w[3])
+   plt.plot(w2, w3)
+   plt.plot(w2[-1], w3[-1], 'ro')
+   plt.xlabel('w[2]')
+   plt.ylabel('w[3]')
+   plt.show()
+   ```
+
+   ![image03](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/section1/github/image03.PNG?raw=true)
+
+   * 스케일을 조정한 데이터 세트로 단일층 신경망을 다시 훈련시키고 가중치를 그래프로 그림
+   * w2와 w3의 변화 비율이 비슷하기 때문에 대각선 방향으로 가중치가 이동하며 최적값에 빠르게 근접하고 있음을 확인할 수 있음
+
 3. 모델 성능 평가하기
-4. 표준화 전처리를 적용
+
+   ```python
+   layer2.score(x_val, y_val)	# 0.37362637362637363
+   ```
+
+4. 검증 세트도 표준화 전처리를 적용
+
+   ```python
+   val_mean = np.mean(x_val, axis=0)
+   val_std = np.std(x_val, axis=0)
+   x_val_scaled = (x_val - val_mean) / val_std
+   layer2.score(x_val_scaled, y_val)	# 0.967032967032967
+   ```
+
+   * 검증 세트의 스케일을 바꾸지 않아 성능이 좋지 않으므로 검증 세트도 표준화 전처리를 적용함
 
 <br>
 
 ### 07. 스케일을 조정한 다음에 실수하기 쉬운 함정을 알아봅니다
 
+````markdown
+훈련 세트와 검증 세트가 다른 비율로 스케일이 조정된 경우를 해결하는 방법
+````
+
 1. 원본 훈련 세트와 검증 세트로 산점도 그리기
+
+   ```python
+   plt.plot(x_train[:50, 0], x_train[:50, 1], 'bo')
+   plt.plot(x_val[:50, 0], x_val[:50, 1], 'ro')
+   plt.xlabel('feature 1')
+   plt.ylabel('feature 2')
+   plt.legend(['train set', 'val. set'])
+   plt.show()
+   ```
+
+   ![image04](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/section1/github/image04.PNG?raw=true)
+
+   * 파란 점이 훈련 세트이고 빨간 점이 검증 세트
+
 2. 전처리한 훈련 세트와 검증 세트로 산점도 그리기
+
+   ```python
+   plt.plot(x_train_scaled[:50, 0], x_train_scaled[:50, 1], 'bo')
+   plt.plot(x_val_scaled[:50, 0], x_val_scaled[:50, 1], 'ro')
+   plt.xlabel('feature 1')
+   plt.ylabel('feature 2')
+   plt.legend(['train set', 'val. set'])
+   plt.show()
+   ```
+
+   ![image05](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/section1/github/image05.PNG?raw=true)
+
+   * 훈련 세트와 검증 세트가 각각 다른 비율로 변환되어 점과 점 사이의 거리가 변환된 이후에 그대로 유지되지 않음
+   * 훈련 세트와 검증 세트를 각각 다른 비율로 전처리했기 때문에 점과 점 사이의 거리가 달라짐
+
 3. 올바르게 검증 세트 전처리하기
+
+   ```python
+   x_val_scaled = (x_val - train_mean) / train_std
+   plt.plot(x_train_scaled[:50, 0], x_train_scaled[:50, 1], 'bo')
+   plt.plot(x_val_scaled[:50, 0], x_val_scaled[:50, 1], 'ro')
+   plt.xlabel('feature 1')
+   plt.ylabel('feature 2')
+   plt.legend(['train set', 'val. set'])
+   plt.show()
+   ```
+
+   ![image06](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/section1/github/image06.PNG?raw=true)
+
+   * 검증 세트와 훈련 세트의 스케일과 다른 비율로 조정되면 모델에 적용된 알고리즘들이 검증 세트의 샘플 데이터를 잘못 인식
+   * 훈련 세트의 평균, 표준 편차를 사용하여 검증 세트를 변환하여 검증 세트를 훈련 세트와 같은 비율로 전처리해야 함
+   * 원본 데이터의 산점도와 스케일 조정 이후의 산점도가 같아짐 (검증 세트와 훈련 세트가 동일한 비율로 변환됨)
+
 4. 모델 평가하기
+
+   ```python
+   layer2.score(x_val_scaled, y_val)	# 0.967032967032967
+   ```
