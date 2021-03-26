@@ -117,6 +117,8 @@
 
    * 로지스틱 손실 함수를 계산할 때 페널티 항에 대한 값을 더하기 위해 reg_loss() 메서드를 SingleLayer 클래스에 추가
 
+   <br>
+
 4. 검증 세트의 손실을 계산하는 update_val_loss() 메서드에서 reg_loss()를 호출하도록 수정
 
    ```python
@@ -168,9 +170,59 @@
      layer5.score(x_val_scaled, y_val)	# 0.978021978021978
      ```
 
-     
+     <br>
 
 6. cancer 데이터 세트에 L2 규제 적용하기
 
+   ```python
+   l2_list = [0.0001, 0.001, 0.01]
+   
+   for l2 in l2_list:
+       lyr = SingleLayer(l2=l2)
+       lyr.fit(x_train_scaled, y_train, x_val=x_val_scaled, y_val=y_val)
+       
+       plt.plot(lyr.losses)
+       plt.plot(lyr.val_losses)
+       plt.title('Learning Curve (l2={})'.format(l2))
+       plt.ylabel('loss')
+       plt.xlabel('epoch')
+       plt.legend(['train_loss', 'val_loss'])
+       plt.ylim(0, 0.3)
+       plt.show()
+       
+       plt.plot(lyr.w, 'bo')
+       plt.title('Weight (l2={})'.format(l2))
+       plt.ylabel('value')
+       plt.xlabel('weight')
+       plt.ylim(-4, 4)
+       plt.show()
+   ```
+
+   ![image04](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/section3/github/image04.PNG?raw=true)
+
+   *  모델의 성능 확인
+
+     ```python
+     layer6 = SingleLayer(l2=0.01)
+     layer6.fit(x_train_scaled, y_train, epochs=50)
+     layer6.score(x_val_scaled, y_val)	# 0.978021978021978
+     ```
+
+   * 여기서는 데이터 세트의 샘플 개수가 적어서 L1규제와 L2 규제를 적용한 모델의 성능에는 차이가 없음
+
+   * 91개 검증 샘플 중 89개의 샘플을 올바르게 예측함
+
+     ```python
+     np.sum(layer6.predict(x_val_scaled) == y_val)	#89
+     ```
+
 7. SGDClassifier에서 규제 사용하기
+
+   ```python
+   sgd = SGDClassifier(loss='log', penalty='l2', alpha=0.001, random_state=42)
+   sgd.fit(x_train_scaled, y_train)
+   sgd.score(x_val_scaled, y_val)
+   ```
+
+   * 사이킷런의 SGDClassifier 클래스는 L1 규제, L2 규제를 지원하며 penalty 매개변수에 l1이나 l2 매개변수 값으로 전달하고 alpha 매개변수에 규제의 강도를 지정하여 사용함
 
