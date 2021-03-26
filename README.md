@@ -9,7 +9,7 @@
 
 ### [chapter 04 분류하는 뉴런을 만듭니다 (이진 분류)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap04/chap04.md)
 
-### chapter 05 훈련 노하우를 배웁니다
+### [chapter 05 훈련 노하우를 배웁니다](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/chap05.md)
 
 ### chapter 06 2개의 층을 연결합니다 (다층 신경망)
 
