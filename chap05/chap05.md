@@ -1,4 +1,4 @@
-# chap 04 훈련 노하우를 배웁니다
+# chap 05 훈련 노하우를 배웁니다
 
 ### [05-1 검증 세트를 나누고 전처리 과정을 배웁니다](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/section1/github/chap05-1.md)
 
