@@ -80,14 +80,45 @@
 ### 03. SingleLayer 클래스에 배치 경사 하강법 적용하기
 
 1. 사용할 패키지 임포트 (넘파이, 맷플롯립)
+
+   ```python
+   import numpy as np
+   import matplotlib.pyplot as plt
+   ```
+
 2. 위스콘신 유방암 데이터 세트를 훈련, 검증, 테스트 세트로 나누고 데이터 살펴보기
+
+   ```python
+   from sklearn.datasets import load_breast_cancer
+   from sklearn.model_selection import train_test_split
+   
+   cancer = load_breast_cancer()
+   x = cancer.data
+   y = cancer.target
+   x_train_all, x_test, y_train_all, y_test = train_test_split(x, y, stratify=y, test_size=0.2, random_state=42)
+   x_train, x_val, y_train, y_val = train_test_split(x_train_all, y_train_all, stratify=y_train_all, test_size=0.2, random_state=42)
+   ```
+
 3. 사용할 데이터의 크기 확인
+
+   ```python
+   print(x_train.shape, x_val.shape)	# (364, 30) (91, 30)
+   ```
+
 4. 정방향 계산을 행렬 곱셈으로 표현하기
+
 5. 그레이디언트 계산 이해하기
+
 6. forpass(), backprop() 메서드에 배치 경사 하강법 적용하기
+
 7. fit() 메서드 수정하기
+
 8. 나머지 메서드 수정하기
+
 9. 훈련 데이터 표준화 전처리하기
+
 10. 배치 경사 하강법 적용
+
 11. 검증 세트로 성능 측정하고 그래프로 비교하기
+
 12. 가중치의 변화를 그래프로 나타내어 결과의 원인 분석
