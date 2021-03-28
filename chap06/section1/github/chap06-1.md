@@ -43,13 +43,13 @@
 
   * x와 w는 벡터이며 두 벡터를 곱하여 합을 구하는 계산(np.sum(x*self.w))을 점 곱 또는 스칼라 곱이라고 함
 
-    ![image01]
+    ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section1/github/image01.PNG?raw=true)
 
 * 점 곱을 행렬 곱셈으로 표현합니다
 
   * 점 곱을 행렬 곱셈으로 표현
 
-    ![image02]
+    ![image02](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section1/github/image02.PNG?raw=true)
 
   * 점 곱을 행렬 곱셈으로 표현하여 코드 수정
 
@@ -61,7 +61,7 @@
 
   * 전체 훈련 데이터 행렬(X)를 가중치(W)와 곱하는 예
 
-    ![image03]
+    ![image03](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section1/github/image03.PNG?raw=true)
 
   * 행렬 곱셈을 통해 만들어지는 결과 행렬의 크기
 
@@ -109,17 +109,17 @@
 
    * 정방향 계산을 행렬 곱셈으로 표현 (훈련 세트와 가중치를 곱한 다음 절편을 더함)
 
-     ![image04]
+     ![image04](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section1/github/image04.PNG?raw=true)
 
    * 벡터와 스칼라의 덧셈 연산 과정
 
-     ![image05]
+     ![image05](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section1/github/image05.PNG?raw=true)
 
    <br>
 
 5. 그레이디언트 계산 이해하기
 
-   ![image06]
+   ![image06](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section1/github/image06.PNG?raw=true)
 
    * 가중치를 업데이트하기 위한 그레이디언트 계산하는 과정 (X^T=X를 전치한 배열, E=오차)
    * 샘플의 각 특성들을 오차에 곱할 수 있게 행렬을 전치하여 행과 열을 바꿈
@@ -321,7 +321,7 @@
     plt.show()
     ```
 
-    ![image07]
+    ![image07](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section1/github/image07.PNG?raw=true)
 
     * 훈련 손실과 검증 손실을 그래프로 출력하여 확률적 경사 하강법과 비교해보면 손실값이 안정적으로 감소하는걸 확인할 수 있음
 
@@ -340,6 +340,6 @@
     plt.show()
     ```
 
-    ![image08]
+    ![image08](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section1/github/image08.PNG?raw=true)
 
     * 배치 경사하강법을 적용하면 가중치를 찾는 경로가 곡선의 형태이며 가중치의 변화가 연속적이므로 손실값도 안정적으로 수렴됨
