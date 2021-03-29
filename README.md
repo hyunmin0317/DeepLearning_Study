@@ -11,7 +11,7 @@
 
 ### [chapter 05 훈련 노하우를 배웁니다](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap05/chap05.md)
 
-### chapter 06 2개의 층을 연결합니다 (다층 신경망)
+### [chapter 06 2개의 층을 연결합니다 (다층 신경망)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/chap06.md)
 
 ### chapter 07 여러 개를 분류합니다 (다중 분류)
 
