@@ -110,6 +110,9 @@
            self.l2 = l2               # L2 손실 하이퍼파라미터
    ```
 
+   * 은닉층의 뉴런 개수를 지정하는 units 매개변수 추가
+   * 은닉층과 출력층의 가중치와 절편을 각각 w1, b1과 w2, b2에 저장
+
 2. forpass() 메서드 수정하기
 
    ```python
@@ -119,6 +122,8 @@
            z2 = np.dot(self.a1, self.w2) + self.b2  # 두 번째 층의 선형 식을 계산합니다.
            return z2
    ```
+
+   * 은닉층과 출력층의 정방향 계산을 수행 (활성화 함수를 통과한 a1과 출력층의 가중치 w2를 곱하고 b2를 더해 결과값 z2를 반환)
 
 3. backprop() 메서드 수정하기
 
@@ -136,7 +141,18 @@
            return w1_grad, b1_grad, w2_grad, b2_grad
    ```
 
+   * 출력층의 가중치(w2_grad)와 절편(b2_grad)의 계산 공식
+
+     ![image14](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section2/github/image14.PNG?raw=true)
+
+   * 은닉층의 가중치(w1_grad)와 절편(b1_grad)의 계산 공식
+
+     ![image15](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section2/github/image15.PNG?raw=true)
+
 4. fit() 메서드 수정하기
+
+   * 은닉층과 출력층의 가중치, 절편을 초기화하고 에포크마다 정방향 계산을 수행하여 오차 계산하며 오차를 역전파하여 가중치와 절편의 그레디언트를 계산하고 손실을 계산하여 누적하는 역할
+   * fit() 메서드를 3개의 작은 메서드로 나누어 구현
 
 5. fit() 메서드의 가중치 초기화 부분을 init_weights() 메서드로 분리
 
@@ -147,6 +163,8 @@
            self.w2 = np.ones((self.units, 1))           # (은닉층의 크기, 1)
            self.b2 = 0
    ```
+
+   * 입력 특성의 개수를 지정하는 n_features 매개변수 하나를 갖음
 
 6. fit() 메서드의 for문 안에 일부 코드를 training() 메서드로 분리
 
@@ -185,6 +203,9 @@
            return a
    ```
 
+   * 정방향 계산과 그레이디언트를 업데이트하는 코드를 training() 메서드로 옮김
+   * fit() 메서드는 훈련 데이터 x, y와 훈련 샘플의 개수 m을 매개변수로 받고 마지막 출력층의 활성화 출력 a를 반환
+
 7. reg_loss() 메서드 수정하기
 
    ```python
@@ -192,6 +213,8 @@
            # 은닉층과 출력층의 가중치에 규제를 적용합니다.
            return self.l1 * (np.sum(np.abs(self.w1)) + np.sum(np.abs(self.w2))) + self.l2 / 2 * (np.sum(self.w1**2) + np.sum(self.w2**2))
    ```
+
+   * 은닉층과 출력층의 가중치에 대한 L1, L2 손실을 계산
 
 <br>
 
@@ -204,6 +227,8 @@
    dual_layer.fit(x_train_scaled, y_train, x_val=x_val_scaled, y_val=y_val, epochs=20000)
    dual_layer.score(x_val_scaled, y_val)
    ```
+
+   * L2 규제는 0.01만큼, 에포크는 20000번으로 지정하여 다층 신경망 모델을 훈련하고 모델 평가 (문제가 간단하여 평가점수 동일)
 
 2. 훈련 손실과 검증 손실 그래프 분석하기
 
@@ -218,40 +243,49 @@
    ```
 
    ![image12](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section2/github/image12.PNG?raw=true)
+   
+   * 훈련 손실 그래프는 훈련 데이터로 손실 함수의 최솟값을 찾아가는 과정을 보여주고 검증 손실 그래프는 검증 데이터로 손실 함수의 최솟값을 찾아가는 과정을 보여줌
+   * `SingleLayer` 클래스보다 가중치의 개수가 훨씬 많아져 학습하는 데 시간이 오래 걸리기 때문에 손실 그래프가 천천히 감소
 
 <br>
 
 ### 08. 가중치 초기화 개선하기
 
-1. 가중치 초기화를 위한 init_weights() 메서드 수정하기
+* 손실 함수가 감소하는 방향을 올바르게 찾는 데 시간이 많이 소요되어 손실 그래프의 초기 손실값이 감소하는 곡선이 매끄럽지 않음
+* 이는 가중치 초기화와 관련이 깊으며 기존은 가중치를 1로 놓았고 이를 개선하기 위해 random.normal() 함수를 통해 가중치 초기화
 
-   ```python
-   class RandomInitNetwork(DualLayer):
-       
-       def init_weights(self, n_features):
-           np.random.seed(42)
-           self.w1 = np.random.normal(0, 1, 
-                                      (n_features, self.units))  # (특성 개수, 은닉층의 크기)
-           self.b1 = np.zeros(self.units)                        # 은닉층의 크기
-           self.w2 = np.random.normal(0, 1, 
-                                      (self.units, 1))           # (은닉층의 크기, 1)
-           self.b2 = 0
-   ```
+* 가중치 초기화 개선 과정
 
-2. RandomInitNetwork 클래스 객체를 다시 만들고 모델 훈련
+  1. 가중치 초기화를 위한 init_weights() 메서드 수정하기
 
-   ![image13](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section2/github/image13.PNG?raw=true)
+     ```python
+     class RandomInitNetwork(DualLayer):
+         
+         def init_weights(self, n_features):
+             np.random.seed(42)
+             self.w1 = np.random.normal(0, 1, (n_features, self.units))  # (특성 개수, 은닉층의 크기)
+             self.b1 = np.zeros(self.units)                        		# 은닉층의 크기
+             self.w2 = np.random.normal(0, 1, (self.units, 1))           # (은닉층의 크기, 1)
+             self.b2 = 0
+     ```
 
-   ```python
-   random_init_net = RandomInitNetwork(l2=0.01)
-   random_init_net.fit(x_train_scaled, y_train, x_val=x_val_scaled, y_val=y_val, epochs=500)
-   
-   plt.plot(random_init_net.losses)
-   plt.plot(random_init_net.val_losses)
-   plt.ylabel('loss')
-   plt.xlabel('epoch')
-   plt.legend(['train_loss', 'val_loss'])
-   plt.show()
-   ```
+     * 실행 결과를 동일하게 하기 위해 np.random.seed() 함수를 통해 무작위 수의 초깃값 고정 (실전에서는 필요 없음)
+     * normal() 함수의 매개변수는 순서대로 평균, 표준 편차, 배열 크기
 
-   
+  2. RandomInitNetwork 클래스 객체를 다시 만들고 모델 훈련
+
+     ```python
+     random_init_net = RandomInitNetwork(l2=0.01)
+     random_init_net.fit(x_train_scaled, y_train, x_val=x_val_scaled, y_val=y_val, epochs=500)
+     
+     plt.plot(random_init_net.losses)
+     plt.plot(random_init_net.val_losses)
+     plt.ylabel('loss')
+     plt.xlabel('epoch')
+     plt.legend(['train_loss', 'val_loss'])
+     plt.show()
+     ```
+
+     ![image13](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section2/github/image13.PNG?raw=true)
+
+     * 가중치를 모두 1로 초기화한 것보다 무작위 수로 초기화한 것이 학습 성능에 영향을 미쳐 손실 함수가 감소하는 곡선이 매끄럽고 손실 함수 값이 훨씬 빠르게 줄어든 것을 확인할 수 있음
