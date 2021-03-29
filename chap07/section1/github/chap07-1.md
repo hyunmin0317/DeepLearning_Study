@@ -476,4 +476,4 @@
    fc.score(x_val, y_val_encoded)	# 0.8150833333333334
    ```
 
-   
+   ![image14.PNG](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap07/section1/github/image14.PNG?raw=true)
