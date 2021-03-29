@@ -88,7 +88,7 @@
    plt.show()
    ```
 
-   ![image01]
+   ![image01](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section3/github/image01.PNG?raw=true)
 
    
 
@@ -107,7 +107,7 @@
    plt.show()
    ```
 
-   
+   ![image02](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/section3/github/image02.PNG?raw=true)
 
 <br>
 
