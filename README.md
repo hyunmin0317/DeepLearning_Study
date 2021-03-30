@@ -13,7 +13,7 @@
 
 ### [chapter 06 2개의 층을 연결합니다 (다층 신경망)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap06/chap06.md)
 
-### chapter 07 여러 개를 분류합니다 (다중 분류)
+### [chapter 07 여러 개를 분류합니다 (다중 분류)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap07/chap07.md)
 
 ### chapter 08 이미지를 분류합니다 (합성곱 신경망)
 
