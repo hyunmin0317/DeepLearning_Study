@@ -389,7 +389,8 @@
    print(class_names[y_train_all[0]])	# 앵클부츠
    ```
 
-   
+   * 60000개의 요소를 가진 1차원 배열인 타깃(y_target_all)의 가장 앞에 있는 데이터 10개만 출력
+   * 배열에는 0~9까지의 정수로 이루어진 클래스 레이블이 들어 있으며 레이블 0부터 9까지의 의미는 다음과 같음
 
 7. 타깃 분포 확인하기
 
@@ -397,11 +398,11 @@
    np.bincount(y_train_all)	# array([6000, 6000, 6000, 6000, 6000, 6000, 6000, 6000, 6000, 6000])
    ```
 
-   
+   * 넘파이 bincount() 함수를 사용하여 배열에 있는 정수값의 등장 횟수를 세어 인덱스에 저장 (고르게 분포된 것을 확인할 수 있음)
 
    <br>
 
-8. 훈련 세트와 검증 세트 고르게 나누기
+8.  훈련 세트와 검증 세트 고르게 나누기
 
    ```python
    from sklearn.model_selection import train_test_split
@@ -410,7 +411,7 @@
    np.bincount(y_val)	# array([1200, 1200, 1200, 1200, 1200, 1200, 1200, 1200, 1200, 1200])
    ```
 
-   
+   * 사이킷런의 train_test_split() 함수를 사용하여 훈련 세트와 검증 세트를 나눔
 
 9. 입력 데이터 정규화하기
 
@@ -419,7 +420,7 @@
    x_val = x_val / 255
    ```
 
-   
+   * 이미지 데이터는 픽셀마다 0~255 사이의 값을 가지므로 255로 나누어 0~1 사이로 맞춤 (표준화와 다르지만 실전에서 잘 작동)
 
 10. 훈련 세트와 검증 세트의 차원 변경하기
 
@@ -429,30 +430,47 @@
     print(x_train.shape, x_val.shape)	# (48000, 784) (12000, 784)
     ```
 
-    
+    * 샘플들은 28*28 크기의 2차원 배열인데 MultiClassNetwork는 1차원 배열의 샘플을 사용할 수 있으므로 넘파이 배열의 reshpae() 메서드를 사용하여 훈련 세트의 두 번째, 세 번째 차원을 합친 다음 784의 길이로 펼침 (픽셀을 풀어 1줄로 이어 붙임)
 
 <br>
 
 ### 08. 타깃 데이터를 준비하고 다중 분류 신경망을 훈련합니다
 
+`패션 MNIST 데이터 세트는 10개의 클래스로 구성되어 있고 출력 뉴런의 개수도 10개가 되어야 하는데 y_train, y_val에 저장된 값들은 0~9 사이의 정수값 하나로 10개의 출력 뉴런에 대응되지 않으므로 타깃 데이터를 출력 뉴런의 개수에 맞게 변형해야 함`
+
 1. 타깃을 원-핫 인코딩으로 변환하기
+
+   * 원-핫 인코딩(one-hot encoding): 출력층의 뉴런과 배열의 개수가 대응되지 않을 때 타깃의 정수값에 해당하는 원소는 1, 나머지 원소는 모두 0으로 하여 10개의 원소를 가진 배열은 만드는 방법
 
 2. 배열의 각 원소를 뉴런의 출력값과 비교하기
 
+   ![image15.PNG](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap07/section1/github/image15.PNG?raw=true)
+
+   * 원-핫 인코딩으로 만든 배열의 각 원소를 뉴런의 출력값과 비교
+
 3. to_categorical 함수 사용해 원-핫 인코딩하기
 
-   ```python
-   tf.keras.utils.to_categorical([0, 1, 3])
-   # array([[1., 0., 0., 0.],
-   #       [0., 1., 0., 0.],
-   #       [0., 0., 0., 1.]], dtype=float32)
-   y_train_encoded = tf.keras.utils.to_categorical(y_train)
-   y_val_encoded = tf.keras.utils.to_categorical(y_val)
-   print(y_train_encoded.shape, y_val_encoded.shape)	# (48000, 10) (12000, 10)
-   print(y_train[0], y_train_encoded[0])	# 6 [0. 0. 0. 0. 0. 0. 1. 0. 0. 0.]
-   ```
+   * 텐서플로에 to_categorical() 함수를 통해서 원-핫 인코딩을 할 수 있음
 
-   
+     ```python
+     tf.keras.utils.to_categorical([0, 1, 3])
+     # array([[1., 0., 0., 0.],
+     #       [0., 1., 0., 0.],
+     #       [0., 0., 0., 1.]], dtype=float32)
+     ```
+
+   * to_categorical() 함수를 사용해 원-핫 인코딩
+
+     ```python
+     y_train_encoded = tf.keras.utils.to_categorical(y_train)
+     y_val_encoded = tf.keras.utils.to_categorical(y_val)
+     print(y_train_encoded.shape, y_val_encoded.shape)	# (48000, 10) (12000, 10)
+     print(y_train[0], y_train_encoded[0])	# 6 [0. 0. 0. 0. 0. 0. 1. 0. 0. 0.]
+     ```
+
+     * 원-핫 인코딩 배열의 크기를 출력한 다음 제대로 인코딩이 되었는지 확인
+
+   <br>
 
 4. MultiClassNetwork 클래스로 다중 분류 신경망 훈련하기
 
@@ -462,7 +480,7 @@
    # ........................................
    ```
 
-   
+   * MultiClassNetwork 클래스를 이용하여 다중 분류 신경망을 40번의 에포크 동안 훈련
 
 5. 훈련 손실, 검증 손실 그래프와 훈련 모델 점수 확인하기
 
@@ -477,3 +495,6 @@
    ```
 
    ![image14.PNG](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap07/section1/github/image14.PNG?raw=true)
+
+   * 손실 그래프가 초기에는 빠르게 감소하다가 완만하게 수렴하고 있음
+   * 전체 검증 세트를 이용하여 모델이 얼마나 잘 훈련되었는지 점수 확인
