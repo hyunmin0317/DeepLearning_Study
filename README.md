@@ -15,9 +15,9 @@
 
 ### [chapter 07 여러 개를 분류합니다 (다중 분류)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap07/chap07.md)
 
-### chapter 08 이미지를 분류합니다 (합성곱 신경망)
+### [chapter 08 이미지를 분류합니다 (합성곱 신경망)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap09/chap09.md)
 
-### chapter 09 텍스트를 분류합니다 (순환 신경망)
+### [chapter 09 텍스트를 분류합니다 (순환 신경망)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap09/chap09.md)
 
 <br>
 
@@ -44,4 +44,6 @@
 | 2021.03.13 | Git과 md파일 사용법 공부 | 최현민, 고민영, 김민우 |
 | 2021.03.20 | Chapter 01 ~ Chapter 03  | 최현민, 고민영, 김민우, 김진호 |
 | 2021.03.27 | Chapter 04 ~ Chapter 05 | 최현민, 고민영, 김민우 |
-| 2021.04.03 | Chapter 06 ~ Chapter 07 |  |
+| 2021.04.04 | Chapter 06 ~ Chapter 07 |  |
+| 2021.04.11 | Chapter 08 ~ Chapter 09 | |
+
