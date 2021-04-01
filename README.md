@@ -15,7 +15,7 @@
 
 ### [chapter 07 여러 개를 분류합니다 (다중 분류)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap07/chap07.md)
 
-### [chapter 08 이미지를 분류합니다 (합성곱 신경망)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap09/chap09.md)
+### [chapter 08 이미지를 분류합니다 (합성곱 신경망)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap08/chap08.md)
 
 ### [chapter 09 텍스트를 분류합니다 (순환 신경망)](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap09/chap09.md)
 
