@@ -5,19 +5,103 @@
 ### 01. SimpleRNN 클래스로 순환 신경망 만들기
 
 1. 순환 신경망에 필요한 클래스 임포트하기
+
+   ```python
+   
+   ```
+
+   
+
 2. 모델 만들기
+
+   ```python
+   
+   ```
+
+   <img src="https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap09/section3/image01.PNG?raw=true" alt="image01.PNG" style="zoom:80%;" />
+
 3. 모델 컴파일하고 훈련시키기
+
+   ```python
+   
+   ```
+
+   
+
 4. 훈련, 검증 세트에 대한 손실 그래프와 정확도 그래프 그리기
+
+   ```python
+   
+   ```
+
+   <img src="https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap09/section3/image02.PNG?raw=true" alt="image02.PNG" style="zoom:80%;" />
+
 5. 검증 세트 정확도 평가하기
+
+   ```python
+   
+   ```
+
+   
 
 <br>
 
 ### 02. 임베딩층으로 순환 신경망 모델 성능 높이기
 
+<img src="https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap09/section3/image03.PNG?raw=true" alt="image03.PNG" style="zoom: 50%;" />
+
 1. Embedding 클래스 임포트하기
+
+   ```python
+   
+   ```
+
+   
+
 2. 훈련 데이터 준비하기
+
+   ```python
+   
+   ```
+
+   
+
 3. 샘플 길이 맞추기
+
+   ```python
+   
+   ```
+
+   
+
 4. 모델 만들기
+
+   ```python
+   
+   ```
+
+   
+
 5. 모델 컴파일하고 훈련시키기
+
+   ```python
+   
+   ```
+
+   
+
 6. 손실 그래프와 정확도 그래프 그리기
+
+   ```python
+   
+   ```
+
+   
+
 7. 검증 세트 정확도 평가하기
+
+   ```python
+   
+   ```
+
+   
