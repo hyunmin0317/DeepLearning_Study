@@ -1,6 +1,8 @@
 # DeepLearning Study
 ### Do it! 딥러닝 입문 스터디 (2021.03.08 ~ )
 ---
+## :blue_book: 목차
+
 ### [chapter 01 딥러닝을 소개합니다](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap01/chap01.md)
 
 ### [chapter 02 최소한의 도구로 딥러닝을 시작합니다](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap02/github/chap02.md)
@@ -21,23 +23,19 @@
 
 <br>
 
-### 팀원
+## :computer: 팀원
 
----
-
-> [최현민 (hyunmin0317)](https://github.com/hyunmin0317?tab=repositories)
+> **최현민 [(hyunmin0317)](https://github.com/hyunmin0317?tab=repositories)**
 >
-> [고민영 (gomin0)](https://github.com/gomin0)
+> **고민영 [(gomin0)](https://github.com/gomin0)**
 >
-> [김민우 (unco-min)](https://github.com/unco-min)
+> **김민우 [(unco-min)](https://github.com/unco-min)**
 >
-> [김진호 (jinho7)](https://github.com/jinho7)
+> **김진호 [(jinho7)](https://github.com/jinho7)**
 
 <br>
 
-### 스터디 기록
-
----
+## :books: 스터디 기록
 
 |    Date    |         Homework         | Participants |
 | :--------: | :----------------------: | :----------: |
