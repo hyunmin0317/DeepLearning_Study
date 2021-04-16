@@ -1,6 +1,6 @@
 # DeepLearning Study
 ### Do it! 딥러닝 입문 스터디 (2021.03.08 ~ )
-----
+---
 ## :blue_book: 목차
 
 ### [chapter 01 딥러닝을 소개합니다](https://github.com/hyunmin0317/DeepLearning_Study/blob/master/chap01/chap01.md)
