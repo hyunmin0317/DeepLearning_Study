@@ -43,4 +43,5 @@
 | 2021.03.20 | Chapter 01 ~ Chapter 03  | 최현민, 고민영, 김민우, 김진호 |
 | 2021.03.27 | Chapter 04 ~ Chapter 05 | 최현민, 고민영, 김민우 |
 | 2021.04.04 | Chapter 06 ~ Chapter 07 | 최현민, 고민영 |
+| 2021.05.00 | Chapter 08 ~ Chapter 09 |  |
 
