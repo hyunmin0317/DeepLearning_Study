@@ -199,7 +199,7 @@
     c_out = tf.nn.conv2d(x_4d, w_4d, strides=1, padding='SAME')
     ```
 
-  * (3, 3) 크기로 변환하여 출력
+  * (3, 3) 크기로 변환하여 출력 (배치 차원과 컬러 차원을 제거)
 
     ```python
     c_out.numpy().reshape(3, 3)
